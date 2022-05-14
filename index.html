@@ -24,11 +24,11 @@ fetch(endpoint)
 
     console.log(cities);
 
-    function findMatches (wordToWatch, cities){
+    function findMatches (wordToMatch, cities){
         return cities.filter(place => {
 
-            const regex = new RegExp(wordToWatch, 'gi');
-            return place.city.match(regex) || place.this.state.match(regex);
+            const regex = new RegExp(wordToMatch, 'gi');
+            return place.city.match(regex) || place.state.match(regex);
         });
     }
 
@@ -53,6 +53,11 @@ fetch(endpoint)
 
     }
     
+    const searchInput = document.querySelector('.search');
+    const suggestions = document.querySelector('.suggestions');
+
+    searchInput.addEventListener('change', displayMatches);
+    searchInput.addEventListener('keyup', displayMatches);
 
 
 
