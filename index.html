@@ -23,6 +23,18 @@ fetch(endpoint)
     .then(data => cities.push(...data))
 
     console.log(cities);
+
+    function findMatches (wordToWatch, cities){
+        return cities.filter(place => {
+
+            const regex = new RegExp(wordToWatch, 'gi');
+            return place.city.match(regex) || place.this.state.match(regex);
+        });
+    }
+
+    function displayMatches (){
+
+    }
     
 
 
